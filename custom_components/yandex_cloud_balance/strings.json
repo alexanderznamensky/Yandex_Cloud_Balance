@@ -1,0 +1,39 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Yandex Cloud Balance",
+        "description": "Enter your Yandex OAuth token.",
+        "data": {
+          "oauth_token": "Yandex OAuth token",
+          "scan_interval": "Update interval, minutes"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Yandex Cloud API.",
+      "invalid_auth": "Invalid OAuth token or insufficient permissions.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "Yandex Cloud Balance is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Yandex Cloud Balance options",
+        "data": {
+          "scan_interval": "Update interval, minutes"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "manual_update": {
+        "name": "Update balance"
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "domain": "yandex_cloud_balance",
+  "name": "Yandex Cloud Balance",
+  "codeowners": ["@alexanderznamensky"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/alexanderznamensky/yandex_cloud_balance",
+  "issue_tracker": "https://github.com/alexanderznamensky/yandex_cloud_balance/issues",
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "integration_type": "service",
+  "version": "1.0.1"
+}

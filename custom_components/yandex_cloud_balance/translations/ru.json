@@ -1,0 +1,39 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Yandex Cloud Balance",
+        "description": "Введите OAuth-токен Яндекса.",
+        "data": {
+          "oauth_token": "OAuth-токен Яндекса",
+          "scan_interval": "Интервал обновления, минут"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Не удалось подключиться к API Yandex Cloud.",
+      "invalid_auth": "Неверный OAuth-токен или недостаточно прав.",
+      "unknown": "Неизвестная ошибка."
+    },
+    "abort": {
+      "already_configured": "Yandex Cloud Balance уже настроен."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Параметры Yandex Cloud Balance",
+        "data": {
+          "scan_interval": "Интервал обновления, минут"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "manual_update": {
+        "name": "Обновить баланс"
+      }
+    }
+  }
+}
