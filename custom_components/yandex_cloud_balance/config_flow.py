@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import voluptuous as vol
 
 from homeassistant import config_entries
@@ -27,14 +28,11 @@ class YandexCloudBalanceConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            await self.async_set_unique_id(DOMAIN)
-            self._abort_if_unique_id_configured()
-
             oauth_token = user_input[CONF_OAUTH_TOKEN]
 
             try:
                 api = YandexCloudBillingApi(self.hass, oauth_token)
-                await api.async_get_billing_accounts()
+                accounts = await api.async_get_billing_accounts()
 
             except YandexCloudBillingAuthError:
                 errors["base"] = "invalid_auth"
@@ -46,8 +44,18 @@ class YandexCloudBalanceConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 errors["base"] = "unknown"
 
             else:
+                token_hash = hashlib.sha256(oauth_token.encode()).hexdigest()[:16]
+
+                await self.async_set_unique_id(token_hash)
+                self._abort_if_unique_id_configured()
+
+                if len(accounts) == 1:
+                    title = next(iter(accounts.values())).name
+                else:
+                    title = f"Yandex Cloud Balance ({len(accounts)} accounts)"
+
                 return self.async_create_entry(
-                    title="Yandex Cloud Balance",
+                    title=title,
                     data={
                         CONF_OAUTH_TOKEN: oauth_token,
                     },
