@@ -6,7 +6,7 @@
         "description": "Введите OAuth-токен Яндекса.",
         "data": {
           "oauth_token": "OAuth-токен Яндекса",
-          "scan_interval": "Интервал обновления, минут"
+          "scan_interval": "Интервал обновления, мин."
         }
       }
     },
@@ -24,7 +24,7 @@
       "init": {
         "title": "Параметры Yandex Cloud Balance",
         "data": {
-          "scan_interval": "Интервал обновления, минут"
+          "scan_interval": "Интервал обновления, мин."
         }
       }
     }
