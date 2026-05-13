@@ -86,15 +86,11 @@ class YandexCloudBalanceConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         config_entry: config_entries.ConfigEntry,
     ) -> YandexCloudBalanceOptionsFlow:
         """Create the options flow."""
-        return YandexCloudBalanceOptionsFlow(config_entry)
+        return YandexCloudBalanceOptionsFlow()
 
 
 class YandexCloudBalanceOptionsFlow(config_entries.OptionsFlow):
     """Handle options for Yandex Cloud Balance."""
-
-    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
-        """Initialize options flow."""
-        self.config_entry = config_entry
 
     async def async_step_init(self, user_input: dict | None = None) -> FlowResult:
         """Manage options."""
